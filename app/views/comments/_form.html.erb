@@ -1,0 +1,14 @@
+<h3>Add comment</h3>
+	<div class="container">
+		<%= form_for([@post, @post.comments.build]) do |f| %>
+
+		<div class="mb-3">
+			<%= f.label :body %>
+			<%= f.text_area(:body, {:class => 'form-control', :style => 'height: 100px'}) %>
+			</div>
+		
+		<div class="mb-3">
+			<%= f.submit({:class => 'btn btn-outline-success'}) %>
+		</div>
+		<% end %>
+	</div>
