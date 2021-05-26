@@ -1,4 +1,4 @@
-# Codegram(added filter by theme)
+# Codegram(added filter by theme to updated branch)
 
 This is all features added to site.
 - Getting started:
