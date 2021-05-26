@@ -24,6 +24,6 @@ This is all features added to site.
 - Search:
   -	Users can search posts by title and by content.
   -	Search is possible if the word starts correctly.
- - Filter by theme:
+- Filter by theme:
   -	User can add theme to their post and edit later.
   -	User can also filter post by theme in the main page.
