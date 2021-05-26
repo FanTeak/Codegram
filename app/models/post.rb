@@ -13,4 +13,28 @@ class Post < ApplicationRecord
 		return if query.blank?
 			where('title LIKE ? OR title LIKE ? OR body LIKE ? OR body LIKE ?', "#{query.squish}%", "% #{query.squish}%", "#{query.squish}%", "% #{query.squish}%")
 	end
+
+	scope :Filter, ->(filter) do
+		if filter == 'common'
+			where(theme: Post::THEMES[:common])
+		elsif filter == 'sport'
+			where(theme: Post::THEMES[:sport])
+		elsif filter == 'science'
+			where(theme: Post::THEMES[:science])
+		elsif filter == 'games'
+			where(theme: Post::THEMES[:games])
+		elsif filter == 'technique'
+			where(theme: Post::THEMES[:technique])
+		end
+	end
+
+	THEMES = {
+		common: 0,
+		sport: 1,
+		science: 2,
+		games: 3,
+		technique: 4
+	}.with_indifferent_access.freeze
+
+	enum theme: THEMES
 end

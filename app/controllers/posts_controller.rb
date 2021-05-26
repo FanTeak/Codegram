@@ -2,7 +2,7 @@ class PostsController < ApplicationController
 	before_action :authenticate_user!, only: %i[new create edit update destroy]
 
 	def index
-		@posts = Post.ordered.with_authors.search(params[:query]).paginate(page: params[:page])
+		@posts = Post.ordered.with_authors.search(params[:query]).Filter(params[:filter]).paginate(page: params[:page])
 		authorize Post
 	end
 
@@ -53,6 +53,6 @@ class PostsController < ApplicationController
 	end
 
 	private def post_params
-		params.require(:post).permit(:title, :body)
+		params.require(:post).permit(:title, :body, :theme)
 	end
 end

@@ -1,10 +1,17 @@
 <div class="container bg-light p-5 col-md-8 mx-auto rounded">
 	<h1>Codegram</h1>
-
-	<% @posts.each do |post| %>
+	<%= form_with method: :get do |form| %>
+	<div class='d-flex justify-content-between'>
+		<%= form.select(:filter, ['common', 'sport', 'science', 'games', 'technique'], {value: params[:filter], :class => 'form-control me-3', :placeholder => 'Category...'}) %>
+		<%= form.submit('Filter', {:class => 'btn btn-outline-dark ms-3'}) %>
+	</div>
+	<% end %>
+		<br>
+		<% @posts.each do |post| %>
 	<a class="text-decoration-none text-dark" href ="<%= post_path(post) %>">
 		<div class="container rounded border border-secondary">
 			<h3><%= post.title %></h3>
+			<h6><%= post.theme %></h6>
 			<p style="text-align: justify;"><%= post.body %></p>
 			<h6>by <%= post.author.username %></h6>
 		</div><br>

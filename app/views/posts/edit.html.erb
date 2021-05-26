@@ -11,11 +11,14 @@
         <%= form.label :title %>
         <%= form.text_field(:title, {:class => 'form-control'}) %>
       </div>
-
-      <div class="mb-3">
+		<div class="mb-3">
+			<%= form.label :theme %>
+			<%= form.select :theme, ['common', 'sport', 'science', 'games', 'technique'], selected: 'common', class: "form-select"%>
+		</div>
+		<div class="mb-3">
         <%= form.label :body %>
         <%= form.text_area(:body, {:class => 'form-control', :style => 'height: 200px'}) %>
-		</div>
+	</div>
 
       <div class="mb-3">
         <%= form.submit('Edit Post' ,{:class => 'btn btn-outline-success'}) %>

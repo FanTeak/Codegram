@@ -1,5 +1,6 @@
 <div class="container bg-light p-5 col-md-8 mx-auto rounded">
 	<h2><%= @post.title%></h2>
+	<h6><%= @post.theme %></h6>
 	<div class="container">
 		<p style="text-align: justify;"><%= @post.body%></p>
 		<h6>by <%= @post.author.username %></h6><hr>
